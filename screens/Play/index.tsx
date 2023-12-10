@@ -1,28 +1,28 @@
 import * as React from 'react'
+import { useCallback } from 'react'
 import { Image, StyleSheet } from 'react-native'
 import { Audio, AVPlaybackStatus } from 'expo-av'
 
 import PlayerControls from './PlayerControls'
 import Screen from '../../components/Screen'
 import { Text } from '../../components/Themed'
-import { useAppSelector, useMeditation } from '../../hooks'
+import { useAppDispatch, useAppSelector, useMeditation, useMsToTime } from '../../hooks'
 import NotFoundScreen from '../NotFoundScreen'
 import { HomeParamList, MainStackParamList } from '../../types'
 import { CompositeNavigationProp, RouteProp } from '@react-navigation/native'
-import { useMsToTime, useAppDispatch } from '../../hooks'
 import { completed, updateFavourite } from '../../redux/meditationSlice'
 import { LoadingScreen } from '../../components'
-import { useCallback } from 'react'
-import { StackNavigationProp } from '@react-navigation/stack'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { selectFavourites, selectFilePaths } from '../../redux/selectors'
 import FavouriteButton from '../../components/FavouriteButton'
 import { Meditation } from '../../data/meditations'
 
 type PlayRouteProp = RouteProp<HomeParamList, 'PlayScreen'>
 
+// @ts-ignore
 type PlayNavProp = CompositeNavigationProp<
-  StackNavigationProp<HomeParamList, 'PlayScreen'>,
-  StackNavigationProp<MainStackParamList>
+  NativeStackNavigationProp<HomeParamList, 'PlayScreen'>,
+  NativeStackNavigationProp<MainStackParamList>
 >
 interface Props {
   navigation: PlayNavProp

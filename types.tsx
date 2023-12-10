@@ -18,6 +18,7 @@ export type BottomTabParamList = {
   Home: NO_PARAMS
   Stats: NO_PARAMS
   Settings: NO_PARAMS
+  MyTest: NO_PARAMS
 }
 
 export type HomeParamList = {
@@ -34,4 +35,8 @@ export type StatsParamList = {
 export type SettingsParamList = {
   SettingsScreen: NO_PARAMS
   AboutScreen: NO_PARAMS
+}
+
+export type MyTestParamList = {
+  MyTestScreen: NO_PARAMS
 }

@@ -10,8 +10,15 @@ import HomeScreen from '../screens/Home'
 import PlayScreen from '../screens/Play'
 import SettingsScreen from '../screens/Settings'
 import StatsScreen from '../screens/Stats'
+import MyTestScreen from '../screens/MyTest'
 import AboutPage from '../screens/Settings/About'
-import { BottomTabParamList, HomeParamList, SettingsParamList, StatsParamList } from '../types'
+import {
+  BottomTabParamList,
+  HomeParamList,
+  MyTestParamList,
+  SettingsParamList,
+  StatsParamList,
+} from '../types'
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>()
 
@@ -40,6 +47,13 @@ export default function BottomTabNavigator() {
       <BottomTab.Screen
         name="Settings"
         component={SettingsNavigator}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="setting" color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="MyTest"
+        component={MyTestNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="setting" color={color} />,
         }}
@@ -133,6 +147,24 @@ function SettingsNavigator() {
         }}
       />
     </SettingsStack.Navigator>
+  )
+}
+
+const MyTestStack = createStackNavigator<MyTestParamList>()
+
+function MyTestNavigator() {
+  return (
+    <MyTestStack.Navigator>
+      <MyTestStack.Screen
+        name="MyTestScreen"
+        component={MyTestScreen}
+        options={{
+          headerTitle: 'MyTest',
+          headerStyle: styles.header,
+          headerTitleStyle: styles.headerTitle,
+        }}
+      />
+    </MyTestStack.Navigator>
   )
 }
 
